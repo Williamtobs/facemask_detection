@@ -16,7 +16,7 @@ class _CameraScreenState extends State<CameraScreen> {
   String result = "";
 
   initCamera() {
-    cameraController = CameraController(cameras![0], ResolutionPreset.medium);
+    cameraController = CameraController(cameras![1], ResolutionPreset.medium);
     cameraController!.initialize().then((value) {
       if (!mounted) return;
       setState(() {
@@ -65,8 +65,14 @@ class _CameraScreenState extends State<CameraScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 35, 46, 139),
+        centerTitle: true,
+        title: const Text('Camera'),
+        elevation: 0,
+      ),
+      body: Stack(
         children: [
           Padding(
             padding: const EdgeInsets.all(5.0),
@@ -82,13 +88,14 @@ class _CameraScreenState extends State<CameraScreen> {
             ),
           ),
           Align(
-            alignment: Alignment.center,
+            alignment: Alignment.topCenter,
             child: Text(
               result,
               style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 35, 46, 139),
+              ),
             ),
           )
         ],

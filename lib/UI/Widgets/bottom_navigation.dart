@@ -11,6 +11,7 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
+  // ignore: non_constant_identifier_names
   var Screens = [
     const HomeScreen(),
     const AboutScreen(),
@@ -20,6 +21,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return Scaffold(
       body: Screens.elementAt(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color.fromARGB(255, 35, 46, 139),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -33,7 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.white,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
